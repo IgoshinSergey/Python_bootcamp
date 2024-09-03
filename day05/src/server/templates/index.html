@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Screwdriver Sound Files</title>
+    </head>
+    <body>
+        <h1>Screwdriver Sound Files</h1>
+        <form action="" method="post" enctype="multipart/form-data">
+            <input type="file" name="file">
+            <input type="submit" value="Upload">
+        </form>
+        <ul>
+            {% for file in files %}
+                <li>
+                    {{ file }}
+                    <br>
+                    <audio controls>
+                        <source src="/static/uploads/{{ file }}" type="audio/{{ file.split('.')[-1] }}">
+                    </audio>
+                </li>
+            {% endfor %}
+        </ul>
+    </body>
+</html>

@@ -1,0 +1,4 @@
+wikipedia
+networkx
+matplotlib
+scipy

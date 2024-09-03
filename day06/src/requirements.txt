@@ -1,0 +1,5 @@
+grpcio-tools
+pydantic
+pydantic-settings
+psycopg2
+sqlalchemy

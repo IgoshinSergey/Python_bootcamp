@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+package spaceship;
+
+enum Alignment {
+    Ally = 0;
+    Enemy = 1;
+}
+
+enum ClassShip {
+    Corvette = 0;
+    Frigate = 1;
+    Cruiser = 2;
+    Destroyer = 3;
+    Carrier = 4;
+    Dreadnought = 5;
+}
+
+message Officer {
+    string first_name = 1;
+    string last_name = 2;
+    string rank = 3;
+}
+
+message Coordinates {
+    repeated float coord = 1;
+}
+
+message Spaceship {
+    Alignment alignment = 1;
+    string name = 2;
+    ClassShip class_ship = 3;
+    float length = 4;
+    int32 crew_size = 5;
+    bool armed = 6;
+    repeated Officer officers = 7;
+}
+
+service SpaceshipService {
+    rpc get_spaceships(Coordinates) returns (stream Spaceship) {}
+}
